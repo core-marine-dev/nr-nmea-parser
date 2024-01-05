@@ -5,7 +5,7 @@ const isString = value => z.string().safeParse(value).success
 const isBoolean = value => z.boolean().safeParse(value).success
 const isNullOrUndefined = value => value === null || value === undefined
 
-const setNode = (parser, { memory, file }) => {
+const setParser = (parser, { memory, file }) => {
   if (isBoolean(memory)) {
     parser.memory = memory
   }
@@ -92,6 +92,14 @@ const getPayload = (parser, payload) => {
   return "payload must be an ASCII string"
 }
 
+const cleanUndefineds = (msg) => {
+  Object.keys(msg).forEach(key => {
+    if (msg[key] === undefined) {
+      delete msg[key]
+    }
+  })
+}
+
 module.exports = function(RED) {
   // Component
   function NMEAParser(config) {
@@ -102,7 +110,7 @@ module.exports = function(RED) {
     let parser = null
     try {
       parser = new Parser(true)
-      setNode(parser, config)
+      setParser(parser, config)
     } catch (err) {
       node.error(err, 'problem setting up NMEA parser')
     }
@@ -113,19 +121,23 @@ module.exports = function(RED) {
         const { memory, protocols, sentence, payload } = msg
         // Memory
         msg.memory = getMemory(parser, memory)
+        if (msg.memory === undefined) { delete msg.memory }
         // Protocols
         msg.protocols = getProtocols(parser, protocols)
         // Sentence
         msg.sentence = getSentence(parser, sentence)
         // Payload
         msg.payload = getPayload(parser, payload)
+        // Clean undefined props
+        cleanUndefineds(msg)
+        // Send msg
         send(msg)
       } catch (err) {
         error = err
-        node.error(err, 'problem reading NMEA msg')
+      } finally {
+        // Finish
+        if (done) { (error === null ) ? done() : done(error) }
       }
-      // Finish
-      if (done) { (error === null ) ? done() : done(error) }
     })
   }
   // Register
