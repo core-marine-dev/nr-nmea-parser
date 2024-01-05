@@ -1,0 +1,60 @@
+# Manual testing checklist
+
+- [X] Defaults
+    - [X] Name
+        - [X] Palette name it's correctno
+        - [X] Editor name it's correct
+        - [X] Edit Dialog placeholder
+    - [X] Memory
+        - [X] Edit dialog default
+    - [X] Protocols file
+        - [X] Valid file
+        - [X] Invalid file
+            - [X] No file
+            - [X] Permission denied
+            - [X] No valid protocols format
+- [X] API
+    - [X] Memory
+        - [X] GET
+        - [X] SET
+            - [X] Valid values
+            - [X] Invalid values
+        - [X] Another things
+    - [X] Protocols
+        - [X] GET
+        - [X] SET
+            - [X] File
+                - [X] Valid file
+                - [X] Invalid file
+                    - [X] No file
+                    - [X] Permission denied
+                    - [X] No valid protocols format
+            - [X] Content
+                - [X] Valid content
+                - [X] Invalid content
+            - [X] JS Object
+                - [X] Valid object
+                - [X] Invalid object
+    - [X] Sentence
+        - [X] GET known sentence
+            - [X] Without talker
+            - [X] With talker
+        - [X] GET unknown sentece
+- [X] Parsing sentences
+    - [X] Happy path without memory
+        - [X] 1 sentence
+        - [X] 2 sentences together
+        - [X] 2 sentences together with garbage in the middle
+        - [X] 1 sentence + 1/2 sentence then 2/2 sentence
+    - [X] Happy path with memory
+        - [X] 1 sentence
+        - [X] 2 sentences together
+        - [X] 2 sentences together with garbage in the middle
+        - [X] 1 sentence + 1/2 sentence then 2/2 sentence
+    - [X] Unhappy path
+        - [X] Invalid sentence
+        - [X] Invalid type of input
+    - [X] Mix happy path with and without memoy with more commands
+        - [X] Memory
+        - [X] Protocols
+        - [X] Sentence

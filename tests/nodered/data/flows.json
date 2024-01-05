@@ -1,0 +1,996 @@
+[
+    {
+        "id": "86f1271d07a48b44",
+        "type": "tab",
+        "label": "NMEA Parser API",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "c6173b4100b89d67",
+        "type": "group",
+        "z": "86f1271d07a48b44",
+        "name": "Memory API",
+        "style": {
+            "label": true,
+            "color": "#000000",
+            "stroke": "#000000"
+        },
+        "nodes": [
+            "de261a7c3f50bbf0",
+            "9b07262fae4baac3",
+            "a9bf8d69eb284777",
+            "ad0a91f034562096",
+            "bd6316d49443a80f",
+            "967eb861d987b29f",
+            "e1b9690ac78ec5b7",
+            "6b5fe8e3d0c0eb8f"
+        ],
+        "x": 34,
+        "y": 119,
+        "w": 772,
+        "h": 282
+    },
+    {
+        "id": "53b0d00e97623318",
+        "type": "group",
+        "z": "86f1271d07a48b44",
+        "name": "Protocols API",
+        "style": {
+            "stroke": "#000000",
+            "label": true,
+            "color": "#000000"
+        },
+        "nodes": [
+            "2fe2bdeabd247e22",
+            "3afa552110c23ef1",
+            "bf2a96cea47ba3ad",
+            "d4ebce20546db205",
+            "f11c402c73a2594d",
+            "22795e5ade5c3527",
+            "5a882237bb9cc5b7",
+            "269e1a1de526763c",
+            "1f386e363ad2cef5",
+            "b13e30fe957edae5",
+            "a41dbddd012c9d6a",
+            "5417d129493270f5",
+            "91ce8e2a79b6c65d",
+            "7473b39722cc3634",
+            "abebea95da23513b",
+            "c3a91838c98f0364",
+            "2065967e9d991a8c",
+            "4cfda5d7ffa6635c",
+            "5303b60c2825a26b",
+            "18ace2ab075396cd",
+            "b0d3ea9162bcf883",
+            "a799a18c3051b088",
+            "65db0fa7479e8788",
+            "46be7d75ba4d2ef6"
+        ],
+        "x": 34,
+        "y": 419,
+        "w": 872,
+        "h": 482
+    },
+    {
+        "id": "dc5b2f693b2e96ea",
+        "type": "group",
+        "z": "86f1271d07a48b44",
+        "name": "Sentence API",
+        "style": {
+            "stroke": "#000000",
+            "label": true,
+            "color": "#000000"
+        },
+        "nodes": [
+            "498115cc86e91fe0",
+            "bf14cc613f0600be",
+            "b9e07f8aa72b23ea",
+            "07a3d42569a07962",
+            "92fde315166f4721",
+            "786045250c7cc8df",
+            "d4a975743249b0f2"
+        ],
+        "x": 34,
+        "y": 919,
+        "w": 812,
+        "h": 242
+    },
+    {
+        "id": "9283b11f486aa6af",
+        "type": "group",
+        "z": "86f1271d07a48b44",
+        "name": "ERRORS - API",
+        "style": {
+            "stroke": "#000000",
+            "label": true,
+            "color": "#000000"
+        },
+        "nodes": [
+            "3dcdbb2ff53d1ac2",
+            "cd7a546b03381262"
+        ],
+        "x": 34,
+        "y": 19,
+        "w": 352,
+        "h": 82
+    },
+    {
+        "id": "2fe2bdeabd247e22",
+        "type": "inject",
+        "z": "86f1271d07a48b44",
+        "g": "53b0d00e97623318",
+        "name": "Protocols GET",
+        "props": [
+            {
+                "p": "protocols",
+                "v": "{\"command\":\"get\"}",
+                "vt": "json"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 160,
+        "y": 500,
+        "wires": [
+            [
+                "22795e5ade5c3527"
+            ]
+        ]
+    },
+    {
+        "id": "de261a7c3f50bbf0",
+        "type": "debug",
+        "z": "86f1271d07a48b44",
+        "g": "c6173b4100b89d67",
+        "name": "MEMORY - API",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "memory",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 680,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "498115cc86e91fe0",
+        "type": "inject",
+        "z": "86f1271d07a48b44",
+        "g": "dc5b2f693b2e96ea",
+        "name": "Sentence GET AAM standard",
+        "props": [
+            {
+                "p": "sentence",
+                "v": "AAM",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 240,
+        "y": 960,
+        "wires": [
+            [
+                "92fde315166f4721"
+            ]
+        ]
+    },
+    {
+        "id": "3dcdbb2ff53d1ac2",
+        "type": "catch",
+        "z": "86f1271d07a48b44",
+        "g": "9283b11f486aa6af",
+        "name": "ERRORS",
+        "scope": null,
+        "uncaught": false,
+        "x": 120,
+        "y": 60,
+        "wires": [
+            [
+                "cd7a546b03381262"
+            ]
+        ]
+    },
+    {
+        "id": "cd7a546b03381262",
+        "type": "debug",
+        "z": "86f1271d07a48b44",
+        "g": "9283b11f486aa6af",
+        "name": "ERRORS",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 280,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "9b07262fae4baac3",
+        "type": "nmea-parser",
+        "z": "86f1271d07a48b44",
+        "g": "c6173b4100b89d67",
+        "name": "NMEA Memory API",
+        "memory": true,
+        "file": "",
+        "x": 470,
+        "y": 260,
+        "wires": [
+            [
+                "de261a7c3f50bbf0"
+            ]
+        ]
+    },
+    {
+        "id": "a9bf8d69eb284777",
+        "type": "inject",
+        "z": "86f1271d07a48b44",
+        "g": "c6173b4100b89d67",
+        "name": "Memory GET",
+        "props": [
+            {
+                "p": "memory",
+                "v": "{\"command\":\"get\"}",
+                "vt": "json"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 230,
+        "y": 160,
+        "wires": [
+            [
+                "9b07262fae4baac3"
+            ]
+        ]
+    },
+    {
+        "id": "ad0a91f034562096",
+        "type": "inject",
+        "z": "86f1271d07a48b44",
+        "g": "c6173b4100b89d67",
+        "name": "Memory SET true",
+        "props": [
+            {
+                "p": "memory",
+                "v": "{\"command\":\"set\",\"payload\":true}",
+                "vt": "json"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 220,
+        "y": 240,
+        "wires": [
+            [
+                "9b07262fae4baac3"
+            ]
+        ]
+    },
+    {
+        "id": "bd6316d49443a80f",
+        "type": "inject",
+        "z": "86f1271d07a48b44",
+        "g": "c6173b4100b89d67",
+        "name": "Memory SET false",
+        "props": [
+            {
+                "p": "memory",
+                "v": "{\"command\":\"set\",\"payload\":false}",
+                "vt": "json"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 210,
+        "y": 200,
+        "wires": [
+            [
+                "9b07262fae4baac3"
+            ]
+        ]
+    },
+    {
+        "id": "967eb861d987b29f",
+        "type": "inject",
+        "z": "86f1271d07a48b44",
+        "g": "c6173b4100b89d67",
+        "name": "Memory SET invalid",
+        "props": [
+            {
+                "p": "memory",
+                "v": "{\"command\":\"set\",\"payload\":{\"hello\":\"world\"}}",
+                "vt": "json"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 210,
+        "y": 280,
+        "wires": [
+            [
+                "9b07262fae4baac3"
+            ]
+        ]
+    },
+    {
+        "id": "e1b9690ac78ec5b7",
+        "type": "inject",
+        "z": "86f1271d07a48b44",
+        "g": "c6173b4100b89d67",
+        "name": "Memory invalid API",
+        "props": [
+            {
+                "p": "memory",
+                "v": "{\"comand\":\"set\",\"payload\":{\"hello\":\"world\"}}",
+                "vt": "json"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 210,
+        "y": 360,
+        "wires": [
+            [
+                "9b07262fae4baac3"
+            ]
+        ]
+    },
+    {
+        "id": "6b5fe8e3d0c0eb8f",
+        "type": "inject",
+        "z": "86f1271d07a48b44",
+        "g": "c6173b4100b89d67",
+        "name": "Memory invalid command",
+        "props": [
+            {
+                "p": "memory",
+                "v": "{\"command\":\"sett\",\"payload\":true}",
+                "vt": "json"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 190,
+        "y": 320,
+        "wires": [
+            [
+                "9b07262fae4baac3"
+            ]
+        ]
+    },
+    {
+        "id": "3afa552110c23ef1",
+        "type": "debug",
+        "z": "86f1271d07a48b44",
+        "g": "53b0d00e97623318",
+        "name": "PROTOCOLS file - Edit Dialog",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "protocols",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 730,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "bf2a96cea47ba3ad",
+        "type": "inject",
+        "z": "86f1271d07a48b44",
+        "g": "53b0d00e97623318",
+        "name": "Protocols SET",
+        "props": [
+            {
+                "p": "protocols",
+                "v": "{\"command\":\"set\",\"file\":\"/tests/norsub.yaml\"}",
+                "vt": "json"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 170,
+        "y": 620,
+        "wires": [
+            [
+                "5a882237bb9cc5b7"
+            ]
+        ]
+    },
+    {
+        "id": "d4ebce20546db205",
+        "type": "debug",
+        "z": "86f1271d07a48b44",
+        "g": "53b0d00e97623318",
+        "name": "PROTOCOLS file path - API",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "protocols",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 720,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "f11c402c73a2594d",
+        "type": "inject",
+        "z": "86f1271d07a48b44",
+        "g": "53b0d00e97623318",
+        "name": "Protocols GET",
+        "props": [
+            {
+                "p": "protocols",
+                "v": "{\"command\":\"get\"}",
+                "vt": "json"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 160,
+        "y": 580,
+        "wires": [
+            [
+                "5a882237bb9cc5b7"
+            ]
+        ]
+    },
+    {
+        "id": "22795e5ade5c3527",
+        "type": "nmea-parser",
+        "z": "86f1271d07a48b44",
+        "g": "53b0d00e97623318",
+        "name": "Parser fed through file - Edit Dialog",
+        "memory": true,
+        "file": "/tests/norsub.yaml",
+        "x": 420,
+        "y": 500,
+        "wires": [
+            [
+                "3afa552110c23ef1"
+            ]
+        ]
+    },
+    {
+        "id": "5a882237bb9cc5b7",
+        "type": "nmea-parser",
+        "z": "86f1271d07a48b44",
+        "g": "53b0d00e97623318",
+        "name": "Parser fed through file path - API",
+        "memory": true,
+        "file": "",
+        "x": 420,
+        "y": 580,
+        "wires": [
+            [
+                "d4ebce20546db205"
+            ]
+        ]
+    },
+    {
+        "id": "269e1a1de526763c",
+        "type": "debug",
+        "z": "86f1271d07a48b44",
+        "g": "53b0d00e97623318",
+        "name": "PROTOCOLS file content - API",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "protocols",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 730,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "1f386e363ad2cef5",
+        "type": "nmea-parser",
+        "z": "86f1271d07a48b44",
+        "g": "53b0d00e97623318",
+        "name": "Parser fed through file content - API",
+        "memory": true,
+        "file": "",
+        "x": 420,
+        "y": 700,
+        "wires": [
+            [
+                "269e1a1de526763c"
+            ]
+        ]
+    },
+    {
+        "id": "b13e30fe957edae5",
+        "type": "inject",
+        "z": "86f1271d07a48b44",
+        "g": "53b0d00e97623318",
+        "name": "Protocols GET",
+        "props": [
+            {
+                "p": "protocols",
+                "v": "{\"command\":\"get\"}",
+                "vt": "json"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 160,
+        "y": 700,
+        "wires": [
+            [
+                "1f386e363ad2cef5"
+            ]
+        ]
+    },
+    {
+        "id": "a41dbddd012c9d6a",
+        "type": "inject",
+        "z": "86f1271d07a48b44",
+        "g": "53b0d00e97623318",
+        "name": "Protocols file",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "/tests/norsub.yaml",
+        "payloadType": "str",
+        "x": 170,
+        "y": 740,
+        "wires": [
+            [
+                "5417d129493270f5"
+            ]
+        ]
+    },
+    {
+        "id": "5417d129493270f5",
+        "type": "file in",
+        "z": "86f1271d07a48b44",
+        "g": "53b0d00e97623318",
+        "name": "",
+        "filename": "payload",
+        "filenameType": "msg",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 340,
+        "y": 740,
+        "wires": [
+            [
+                "91ce8e2a79b6c65d"
+            ]
+        ]
+    },
+    {
+        "id": "91ce8e2a79b6c65d",
+        "type": "change",
+        "z": "86f1271d07a48b44",
+        "g": "53b0d00e97623318",
+        "name": "file content",
+        "rules": [
+            {
+                "t": "set",
+                "p": "protocols.command",
+                "pt": "msg",
+                "to": "set",
+                "tot": "str"
+            },
+            {
+                "t": "move",
+                "p": "payload",
+                "pt": "msg",
+                "to": "protocols.content",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 510,
+        "y": 740,
+        "wires": [
+            [
+                "1f386e363ad2cef5"
+            ]
+        ]
+    },
+    {
+        "id": "7473b39722cc3634",
+        "type": "debug",
+        "z": "86f1271d07a48b44",
+        "g": "53b0d00e97623318",
+        "name": "PROTOCOLS protocols - API",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "protocols",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 720,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "abebea95da23513b",
+        "type": "nmea-parser",
+        "z": "86f1271d07a48b44",
+        "g": "53b0d00e97623318",
+        "name": "Parser fed through protocols - API",
+        "memory": true,
+        "file": "",
+        "x": 420,
+        "y": 820,
+        "wires": [
+            [
+                "7473b39722cc3634"
+            ]
+        ]
+    },
+    {
+        "id": "c3a91838c98f0364",
+        "type": "inject",
+        "z": "86f1271d07a48b44",
+        "g": "53b0d00e97623318",
+        "name": "Protocols GET",
+        "props": [
+            {
+                "p": "protocols",
+                "v": "{\"command\":\"get\"}",
+                "vt": "json"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 160,
+        "y": 820,
+        "wires": [
+            [
+                "abebea95da23513b"
+            ]
+        ]
+    },
+    {
+        "id": "2065967e9d991a8c",
+        "type": "inject",
+        "z": "86f1271d07a48b44",
+        "g": "53b0d00e97623318",
+        "name": "Protocols file",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "/tests/norsub.yaml",
+        "payloadType": "str",
+        "x": 170,
+        "y": 860,
+        "wires": [
+            [
+                "4cfda5d7ffa6635c"
+            ]
+        ]
+    },
+    {
+        "id": "4cfda5d7ffa6635c",
+        "type": "file in",
+        "z": "86f1271d07a48b44",
+        "g": "53b0d00e97623318",
+        "name": "",
+        "filename": "payload",
+        "filenameType": "msg",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 340,
+        "y": 860,
+        "wires": [
+            [
+                "5303b60c2825a26b"
+            ]
+        ]
+    },
+    {
+        "id": "5303b60c2825a26b",
+        "type": "yaml",
+        "z": "86f1271d07a48b44",
+        "g": "53b0d00e97623318",
+        "property": "payload",
+        "name": "",
+        "x": 490,
+        "y": 860,
+        "wires": [
+            [
+                "18ace2ab075396cd"
+            ]
+        ]
+    },
+    {
+        "id": "18ace2ab075396cd",
+        "type": "change",
+        "z": "86f1271d07a48b44",
+        "g": "53b0d00e97623318",
+        "name": "protocols object",
+        "rules": [
+            {
+                "t": "set",
+                "p": "protocols.command",
+                "pt": "msg",
+                "to": "set",
+                "tot": "str"
+            },
+            {
+                "t": "move",
+                "p": "payload.protocols",
+                "pt": "msg",
+                "to": "protocols.protocols",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 660,
+        "y": 860,
+        "wires": [
+            [
+                "abebea95da23513b"
+            ]
+        ]
+    },
+    {
+        "id": "bf14cc613f0600be",
+        "type": "inject",
+        "z": "86f1271d07a48b44",
+        "g": "dc5b2f693b2e96ea",
+        "name": "Sentence GET AAM GPS",
+        "props": [
+            {
+                "p": "sentence",
+                "v": "GPAAM",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 250,
+        "y": 1000,
+        "wires": [
+            [
+                "92fde315166f4721"
+            ]
+        ]
+    },
+    {
+        "id": "b9e07f8aa72b23ea",
+        "type": "inject",
+        "z": "86f1271d07a48b44",
+        "g": "dc5b2f693b2e96ea",
+        "name": "Sentence GET AAM Galileo",
+        "props": [
+            {
+                "p": "sentence",
+                "v": "GAAAM",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 240,
+        "y": 1040,
+        "wires": [
+            [
+                "92fde315166f4721"
+            ]
+        ]
+    },
+    {
+        "id": "07a3d42569a07962",
+        "type": "inject",
+        "z": "86f1271d07a48b44",
+        "g": "dc5b2f693b2e96ea",
+        "name": "Sentence GET AAM Unknown talker",
+        "props": [
+            {
+                "p": "sentence",
+                "v": "XXAAM",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 220,
+        "y": 1080,
+        "wires": [
+            [
+                "92fde315166f4721"
+            ]
+        ]
+    },
+    {
+        "id": "92fde315166f4721",
+        "type": "nmea-parser",
+        "z": "86f1271d07a48b44",
+        "g": "dc5b2f693b2e96ea",
+        "name": "Sentence API",
+        "memory": true,
+        "file": "",
+        "x": 500,
+        "y": 1040,
+        "wires": [
+            [
+                "786045250c7cc8df"
+            ]
+        ]
+    },
+    {
+        "id": "786045250c7cc8df",
+        "type": "debug",
+        "z": "86f1271d07a48b44",
+        "g": "dc5b2f693b2e96ea",
+        "name": "SENTENCE - API",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "sentence",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 710,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "b0d3ea9162bcf883",
+        "type": "comment",
+        "z": "86f1271d07a48b44",
+        "g": "53b0d00e97623318",
+        "name": "Feed parser with File Path - Edit dialog",
+        "info": "",
+        "x": 210,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "a799a18c3051b088",
+        "type": "comment",
+        "z": "86f1271d07a48b44",
+        "g": "53b0d00e97623318",
+        "name": "Feed parser with File Path - API",
+        "info": "",
+        "x": 190,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "65db0fa7479e8788",
+        "type": "comment",
+        "z": "86f1271d07a48b44",
+        "g": "53b0d00e97623318",
+        "name": "Feed parser with File Content - API",
+        "info": "",
+        "x": 200,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "46be7d75ba4d2ef6",
+        "type": "comment",
+        "z": "86f1271d07a48b44",
+        "g": "53b0d00e97623318",
+        "name": "Feed parser with File Parsed - API",
+        "info": "",
+        "x": 200,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "d4a975743249b0f2",
+        "type": "inject",
+        "z": "86f1271d07a48b44",
+        "g": "dc5b2f693b2e96ea",
+        "name": "SENTENCE Unknown",
+        "props": [
+            {
+                "p": "sentence",
+                "v": "XXXXX",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 260,
+        "y": 1120,
+        "wires": [
+            [
+                "92fde315166f4721"
+            ]
+        ]
+    }
+]
