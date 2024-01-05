@@ -17,44 +17,44 @@
     - [X] Memory
         - [X] GET
         - [X] SET
-            - [ ] Valid values
-            - [ ] Invalid values
+            - [X] Valid values
+            - [X] Invalid values
         - [X] Another things
     - [X] Protocols
         - [X] GET
         - [X] SET
-            - [ ] File
-                - [ ] Valid file
-                - [ ] Invalid file
-                    - [ ] No file
-                    - [ ] Permission denied
-                    - [ ] No valid protocols format
-            - [ ] Content
-                - [ ] Valid content
-                - [ ] Invalid content
-            - [ ] JS Object
-                - [ ] Valid object
-                - [ ] Invalid object
+            - [X] File
+                - [X] Valid file
+                - [X] Invalid file
+                    - [X] No file
+                    - [X] Permission denied
+                    - [X] No valid protocols format
+            - [X] Content
+                - [X] Valid content
+                - [X] Invalid content
+            - [X] JS Object
+                - [X] Valid object
+                - [X] Invalid object
     - [X] Sentence
         - [X] GET known sentence
             - [X] Without talker
             - [X] With talker
         - [X] GET unknown sentece
-- [ ] Parsing sentences
-    - [ ] Happy path without memory
-        - [ ] 1 sentence
-        - [ ] 2 sentences together
-        - [ ] 2 sentences together with garbage in the middle
-        - [ ] 1 sentence + 1/2 sentence then 2/2 sentence
-    - [ ] Happy path with memory
-        - [ ] 1 sentence
-        - [ ] 2 sentences together
-        - [ ] 2 sentences together with garbage in the middle
-        - [ ] 1 sentence + 1/2 sentence then 2/2 sentence
-    - [ ] Unhappy path
-        - [ ] Invalid sentence
-        - [ ] Invalid type of input
-    - [ ] Mix happy path with and without memoy with more commands
-        - [ ] Memory
-        - [ ] Protocols
-        - [ ] Sentence
+- [X] Parsing sentences
+    - [X] Happy path without memory
+        - [X] 1 sentence
+        - [X] 2 sentences together
+        - [X] 2 sentences together with garbage in the middle
+        - [X] 1 sentence + 1/2 sentence then 2/2 sentence
+    - [X] Happy path with memory
+        - [X] 1 sentence
+        - [X] 2 sentences together
+        - [X] 2 sentences together with garbage in the middle
+        - [X] 1 sentence + 1/2 sentence then 2/2 sentence
+    - [X] Unhappy path
+        - [X] Invalid sentence
+        - [X] Invalid type of input
+    - [X] Mix happy path with and without memoy with more commands
+        - [X] Memory
+        - [X] Protocols
+        - [X] Sentence
