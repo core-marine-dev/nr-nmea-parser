@@ -1,5 +1,9 @@
 # nr-nmea-parser
 
+![npm (scoped)](https://img.shields.io/npm/v/%40coremarine/nr-nmea-parser)
+[![publish](https://github.com/core-marine-dev/nr-nmea-parser/actions/workflows/publish.yml/badge.svg)](https://github.com/core-marine-dev/nr-nmea-parser/actions/workflows/publish.yml)
+![npm](https://img.shields.io/npm/dy/%40coremarine/nr-nmea-parser)
+
 Node-Red component to read NMEA 0183 sentences. It is a wrapper of [@coremarine/nmea-parser](https://github.com/core-marine-dev/nmea-parser) (check it docs).
 
 ## Input
