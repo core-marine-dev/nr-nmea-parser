@@ -4,14 +4,17 @@ Node-Red component to read NMEA 0183 sentences. It is a wrapper of [@coremarine/
 
 ## Input
 
-NMEA component uses 4 properties to work. `payload` is the main properyt, with NMEA content, and the other 3 (`protocols`, `sentence`, `memory`) are optionals.
+NMEA component uses 4 properties to work:
+
+- `payload` is the main property with NMEA content.
+- `protocols`, `sentence`, `memory` are optionals.
 
 | Input property       | Description                                                                            |
 | :------------------- | :------------------------------------------------------------------------------------- |
-| payload (string)     | NMEA ASCII content (important, it is an *ASCII* string, not other encoding).           |
-| *protocols* (object) | Object to get or set the protocols supported and their sentences (look details below). |
-| *sentence* (string)  | Sentence ID to get if it is supported and its info (look details below).               |
-| *memory* (object)    | Object to check or enabled / disabled parser memory state (look details below).        |
+| `payload` (string)     | NMEA ASCII content (important, it is an *ASCII* string, not other encoding).           |
+| *`memory`* (object)    | Object to check or enabled / disabled parser memory state (look details below).        |
+| *`protocols`* (object) | Object to get or set the protocols supported and their sentences (look details below). |
+| *`sentence`* (string)  | Sentence ID to get if it is supported and its info (look details below).               |
 
 ## Output
 
@@ -20,9 +23,9 @@ Each input proerty would be responded in the same output property
 | Output property      | Description                                                                                                                    |
 | :------------------- | :----------------------------------------------------------------------------------------------------------------------------- |
 | payload (array)      | It gives you the same parsing output that the CoreMarine NMEA Parser (an array of object with the info of each NMEA sentence). |
-| *memory* (object)    | Response to the *memory* input (look details below).                                                                           |
-| *protocols* (object) | Response to the *protocols* input (look details below).                                                                        |
-| *sentence* (string)  | Response to the *sentence* input (look details below).                                                                         |
+| *`memory`* (object)    | Response to the *memory* input (look details below).                                                                           |
+| *`protocols`* (object) | Response to the *protocols* input (look details below).                                                                        |
+| *`sentence`* (string)  | Response to the *sentence* input (look details below).                                                                         |
 
 ## Details
 
