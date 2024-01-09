@@ -8,28 +8,30 @@ Node-Red component to read NMEA 0183 sentences. It is a wrapper of [@coremarine/
 
 ## Input
 
-NMEA component uses 4 properties to work:
+NMEA component uses 5 properties to work:
 
 - `payload` is the main property with NMEA content.
-- `protocols`, `sentence`, `memory` are optionals.
+- `protocols`, `sentence`, `memory` and `fake` are optionals.
 
-| Input property       | Description                                                                            |
-| :------------------- | :------------------------------------------------------------------------------------- |
+| Input property         | Description                                                                            |
+| :--------------------- | :------------------------------------------------------------------------------------- |
 | `payload` (string)     | NMEA ASCII content (important, it is an *ASCII* string, not other encoding).           |
 | *`memory`* (object)    | Object to check or enabled / disabled parser memory state (look details below).        |
 | *`protocols`* (object) | Object to get or set the protocols supported and their sentences (look details below). |
 | *`sentence`* (string)  | Sentence ID to get if it is supported and its info (look details below).               |
+| *`fake`* (string)      | Sentence ID to get a full fake NMEA-like sentence if it is supported.                  |
 
 ## Output
 
 Each input proerty would be responded in the same output property
 
-| Output property      | Description                                                                                                                    |
-| :------------------- | :----------------------------------------------------------------------------------------------------------------------------- |
-| payload (array)      | It gives you the same parsing output that the CoreMarine NMEA Parser (an array of object with the info of each NMEA sentence). |
+| Output property        | Description                                                                                                                    |
+| :--------------------- | :----------------------------------------------------------------------------------------------------------------------------- |
+| payload (array)        | It gives you the same parsing output that the CoreMarine NMEA Parser (an array of object with the info of each NMEA sentence). |
 | *`memory`* (object)    | Response to the *memory* input (look details below).                                                                           |
 | *`protocols`* (object) | Response to the *protocols* input (look details below).                                                                        |
 | *`sentence`* (string)  | Response to the *sentence* input (look details below).                                                                         |
+| *`fake`* (string)      | Response to the *fake* input (look details below).                                                                             |
 
 ## Details
 
@@ -85,3 +87,13 @@ Response will be an `object` with the whole info or `null` if it's unknown / not
 |         Input          |              Output             |
 | :--------------------: | :-----------------------------: |
 | `sentence`: **string** | `sentence`: **object** | `null` |
+
+### Fake
+
+If you want to get a NMEA-like sentence, maybe just to do some tests, you need to send the sentence id.
+Response will be a `string` with the whole ASCII sentence or `null` if it's unknown / not supported yet.
+This fake sentence is correct in terms of NMEA requirements but each field has garbage.
+
+|       Input        |            Output           |
+| :----------------: | :-------------------------: |
+| `fake`: **string** | `fake`: **string** | `null` |
