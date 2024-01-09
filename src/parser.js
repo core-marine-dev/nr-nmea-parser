@@ -81,6 +81,17 @@ const getSentence = (parser, sentence) => {
   return "sentence must be a string"
 }
 
+const getFake = (parser, id) => {
+  // Not sentence
+  if (isNullOrUndefined(id)) { return undefined }
+  // Sentence
+  if (isString(id)) {
+    return parser.getFakeSentenceByID(id)
+  }
+  // Invalid sentence
+  return "sentence id must be a string"
+}
+
 const getPayload = (parser, payload) => {
   // Not payload
   if (isNullOrUndefined(payload)) { return undefined }
@@ -118,7 +129,7 @@ module.exports = function(RED) {
     node.on('input', (msg, send, done) => {
       let error = null
       try {
-        const { memory, protocols, sentence, payload } = msg
+        const { memory, protocols, sentence, fake, payload } = msg
         // Memory
         msg.memory = getMemory(parser, memory)
         if (msg.memory === undefined) { delete msg.memory }
@@ -126,6 +137,8 @@ module.exports = function(RED) {
         msg.protocols = getProtocols(parser, protocols)
         // Sentence
         msg.sentence = getSentence(parser, sentence)
+        // Fake
+        msg.fake = getFake(parser, fake)
         // Payload
         msg.payload = getPayload(parser, payload)
         // Clean undefined props
